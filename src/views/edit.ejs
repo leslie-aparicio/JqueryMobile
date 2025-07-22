@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crochet</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/src/public/css/style.css">
+</head>
+
+<body>
+
+    <!-- Inicio de la primera página -->
+    <div data-role="page" >
+
+
+        <div role="main" class="ui-content">
+            <h2 style="color: #ff90ff;">Editar productos</h2>
+            <div data-role="content">
+                <form action="/update/<%= crochet.barcode %>" method="post">
+                    <input type="text" name="urlImg" placeholder="URL de la imagen" value="<%= crochet.urlImg %>">
+                    <input type="text" name="description" placeholder="Descripcion" value="<%= crochet.description %>">
+                    <input type="number" name="price" placeholder="Precio de compra" value="<%= crochet.price %>">
+                    <input type="text" name="color" placeholder="Color" value="<%= crochet.color %>">
+                    <input type="date" name="deliverDate" placeholder="Fecha de entrega" value="<%= crochet.delieverDate %>">
+                    <label for="flip-2" style="color: #800080;">Activo:</label>
+                    <select name="status" id="flip-2" data-role="slider">
+                        <option value="0" <%= crochet.status === 0 ? "selected" : "" %>>No</option>
+                        <option value="1" <%= crochet.status === 1 ? "selected" : "" %>>Sí</option>
+                    </select>
+                    <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini" style="background-color: #800080; color: #FFF;">Actualizar</button>
+                    <li>
+                        <a href="/" class="ui-btn" style="background-color: #800080; color: #FFF;">Cancelar</a>
+                    </li>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
